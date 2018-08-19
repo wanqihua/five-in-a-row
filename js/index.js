@@ -94,17 +94,8 @@ globals.canvas.addEventListener('click',function(e){
     }else{
       globals.playList[x][y] = 2;
     }
+    judgement(x,y,globals.playList[x][y]);  //调用judgement函数
     globals.firstPlay = !globals.firstPlay;
-    for( let i = 0; i < globals.count; i++ ){
-      if( globals.winList[x][y][i] ){
-        globals.blackWinList[i]++;
-        globals.whiteWinList[i] = 6;
-        if( globals.blackWinList[i] === 5 ){
-          console.log('黑棋赢了');
-          globals.gameOver = true;
-        }
-      }
-    }
   }
 },false);
 
@@ -150,4 +141,28 @@ function play(x,y,person){
   }
   globals.context.fillStyle = gradient;
   globals.context.fill();
+}
+
+/**
+ * 判断游戏是否结束，color落子颜色
+ */
+function judgement(x,y,color){
+  for(let i = 0; i < globals.count; i++){
+    if( globals.winList[x][y][i] ){  //点(x,y)处有赢法
+      if(color === 1){
+        globals.blackWinList[i]++;
+        if(globals.blackWinList[i] === 5){
+          console.log("黑子胜利!");
+          globals.over = true;
+        }
+      }
+      if(color === 2){
+        globals.whiteWinList[i]++;
+        if(globals.whiteWinList[i] === 5){
+          console.log("白子胜利!");
+          globals.over = true;
+        }
+      }
+    }
+  }
 }
