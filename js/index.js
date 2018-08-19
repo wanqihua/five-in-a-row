@@ -153,14 +153,14 @@ function judgement(x,y,color){
         globals.blackWinList[i]++;
         if(globals.blackWinList[i] === 5){
           console.log("黑子胜利!");
-          globals.over = true;
+          globals.gameOver = true;
         }
       }
       if(color === 2){
         globals.whiteWinList[i]++;
         if(globals.whiteWinList[i] === 5){
           console.log("白子胜利!");
-          globals.over = true;
+          globals.gameOver = true;
         }
       }
     }
