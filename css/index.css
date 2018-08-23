@@ -18,7 +18,6 @@ canvas {
 
 /*canvas不能使用伪元素做水印*/
 #canvas:before {
-  z-index: 2;
   position: absolute;
   content: '五子棋';
   display: block;
@@ -31,4 +30,42 @@ canvas {
   left: 0;
   line-height: 570px;
   text-align: center;
+}
+
+#alert_box {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 240px;
+  height: 150px;
+  background: rgba(255,255,255,.9);
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #999;
+  z-index: 2;
+}
+
+#alert_box > p {
+  width: 100%;
+  height: 80px;
+  font-size: 24px;
+  color: #000;
+  line-height: 80px;
+  text-align: center;
+}
+
+.button_box {
+  width: 140px;
+  height: 30px;
+  font-size: 16px;
+  text-align: center;
+  line-height: 30px;
+  color: #fff;
+  background: #ff7b00;
+  border-radius: 5px;
+  margin: 10px auto 0;
 }
